@@ -1,0 +1,59 @@
+
+
+<!-- Toolbar -->
+<div class="toolbar" role="banner">
+  <img
+    width=175;
+    alt="MyHomeLogo"
+    src="https://www.myhome.ie/assets/images/new_logo_v2.png"
+  />
+</div>
+
+<div class="title" role="main">
+
+  <!-- Title -->
+  <h1>Thousands of homes at one address</h1>  
+
+    <!-- Filter -->
+    <div id="filter">
+
+        <button class="card card-small" id="link" onclick="myFunction()">Filter by price</button>
+        <button class="card card-small" id="link" onclick="myFunction()">Sort by price</button>
+    </div>
+</div>    
+<div class="content" role="main">
+
+
+  <!-- Properties -->
+    <div id="element" *ngFor="let result of searchResults">
+      
+      <!-- Property Image 1-->
+      <img id="main-image" src={{result.MainPhoto}} />
+      <h2>{{result.DisplayAddress}}</h2>
+      <h3>{{result.Price}}, {{result.BedsString}} {{result.BathString}}</h3>
+
+  <!-- Links -->
+      <div class="card-container">
+        <a rel="noopener" href="/src/index.html">
+          <button class="card card-small" id="link">
+            <span>View Gallery</span>
+          </button>
+        </a>
+        <a rel="noopener" href="/src/index.html">
+          <button class="card card-small" id="link-1">
+            <span>View Brochure</span>
+          </button>
+        </a>
+      </div> 
+    </div>
+</div>
+
+<!-- back up -->
+
+<a rel="noopener" href="#">
+  <button class="card card-small" id="link-up">
+    <span>Back to top </span>
+  </button>
+</a>
+  
+    

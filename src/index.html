@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script src="js/main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <meta charset="utf-8">
+  <title>MyhomeApp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript">
+    window.onload = function(){
+    var imagenes = [];
+    imagenes = document.getElementsByTagName('img');   
+    for (i=0; i<imagenes.length; i++) {
+    reemplazar(imagenes[i]);
+    }
+    }
+     
+    function reemplazar(ima){
+    var reemplazo = 'https://www.myhome.ie/app/assets/images/heart.png';
+    var ImagenPrueva = new Image();
+    ImagenPrueva.src = ima.src;
+    ImagenPrueva.onerror = function(){
+    ima.src = reemplazo;
+    ima.title = "No available";
+    }
+    }
+ </script>
+
+      <script type="text/javascript">
+      function SeeProductbyPrice(Price) {
+        return Price = {{result.Price}};
+      } 
+      
+      function myFunction() {
+        document.getElementById("Price").innerHTML = JSON.housedata(result.filter(SeeProductbyPrice))
+      }
+</script>
+</head>
+<body>
+  <app-root>    <div class="title" role="main">
+    <h1>Gallery</h1>
+  </div>
+  <!-- Gallery -->
+    <div id="element" class="container">
+        <section id="content">
+            <ul>
+              <img id="main-image" width="290" height="200" src={{result.MainPhoto}} />
+              <img id="main-image" width="290" height="200" src={{result.Photos}} />
+            </ul>  
+        </section>
+    </div>
+  <!-- Properties -->
+        <div class="title" role="main">
+          <h1>Data</h1>
+        </div>
+  <div id="element" *ngFor="let result of searchResults">
+    
+    <h2>{{result.PropertyId}}</h2>
+    <h2>{{result.GroupLogoUrl}}</h2>
+    <h2>{{result.BedsString}}</h2>
+    <h2>{{result.Price}}</h2> 
+    <h2>{{result.SizeStringMeters}}</h2>
+    <h2>{{result.DisplayAddress}}</h2>
+    <h2>{{result.PropertyType}}</h2>
+    <h2>{{result.BerRating}}</h2>
+    <h2>{{result.MainPhoto}}</h2>
+    <h2>{{result.Photo}}</h2>
+
+  </div>  
+</app-root>  
+
+
+</body>
+</html>
